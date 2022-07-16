@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Ini Halaman Profile
+                    {{$nama}}
                 </div>
 
                 <div class="links">
@@ -96,5 +96,4 @@
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </
