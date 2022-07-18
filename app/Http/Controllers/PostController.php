@@ -35,7 +35,7 @@ class PostController extends Controller
 
     public function tambah($a,$b)
     {
-        $post = post::find($id);
+        $post = new post();
         $post->title =$a;
         $post->content = $b;
         $post ->save();
@@ -44,10 +44,8 @@ class PostController extends Controller
 
     public function hapus($id)
     {
-        $post = post::find($id);
-        $post->title =$a;
-        $post->content = $b;
-        $post ->save();
-        return $post;
+        $post = Post::find($id);
+        $post->delete();
+        return redirect('post');
     }
 }

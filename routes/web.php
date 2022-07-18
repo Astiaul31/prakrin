@@ -1,8 +1,12 @@
 <?php
 
-//menggunakan / mengimput LatihanController
+//menggunakan / mengimport LatihanController
 use App\Http\Controllers\LatihanController;
+
+// menggunakan / mengimport PostController
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SekolahController;
+use App\Http\Controllers\TugasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,12 +62,47 @@ Route::get('belanja/', [LatihanController::class,'belanja']);
 
 Route::get('siswa2', [LatihanController::class, 'nilai_siswa']);
 
+
 // route post
+
 Route::get('post',[PostController::class, 'tampil']);
 
 Route::get('post/{id}',[PostController::class, 'search']);
 
 Route::get('post/judul/{title}',[PostController::class, 'search_title']);
+
 Route::get('post/edit/{id}/{title}/{content}',[PostController::class, 'edit']);
 
+Route::get('post/create/{title}/{content}',[PostController::class, 'tambah']);
 
+Route::get('post/delete/{title}',[PostController::class, 'hapus']);
+
+// Siswa
+Route::get('/sekolah/siswa/', [SekolahController::class, 'siswa']);
+// Edit siswa
+Route::get('/sekolah/siswa/edit/{id}/{nama}/{kelas}/{jenis_kelamin}/{umur}/{jurusan}', [SekolahController::class, 'edit_siswa']);
+// Tambah siswa
+Route::get('/sekolah/siswa/tambah/{nama}/{kelas}/{jenis_kelamin}/{umur}/{jurusan}', [SekolahController::class, 'tambah_siswa']);
+// Hapus Siswa
+Route::get('/sekolah/siswa/delete/{id}', [SekolahController::class, 'hapus_siswa']);
+
+// Guru
+Route::get('/sekolah/guru/', [SekolahController::class, 'guru']);
+// Edit Guru
+Route::get('/sekolah/guru/edit/{id}/{nama}/{mapel}/{jenis_kelamin}/{umur}/{status}', [SekolahController::class, 'edit_guru']);
+// Tambah Guru
+Route::get('/sekolah/guru/tambah/{nama}/{mapel}/{jenis_kelamin}/{umur}/{status}', [SekolahController::class, 'tambah_guru']);
+// Hapus Guru
+Route::get('/sekolah/guru/delete/{id}', [SekolahController::class, 'hapus_guru']);
+
+// Jurusan
+Route::get('/sekolah/jurusan/', [SekolahController::class, 'jurusan']);
+// Edit Jurusan
+Route::get('/sekolah/jurusan/edit/{id}/{jurusan}', [SekolahController::class, 'edit_jurusan']);
+// Tambah Jurusan
+Route::get('/sekolah/jurusan/tambah/{jurusan}', [SekolahController::class, 'tambah_jurusan']);
+// Hapus Jurusan
+Route::get('/sekolah/jurusan/delete/{id}', [SekolahController::class, 'hapus_jurusan']);
+
+// Tugas
+Route::get('/Tugas', [TugasController::class, 'index']);
